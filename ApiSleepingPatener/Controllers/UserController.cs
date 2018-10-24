@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using ApiSleepingPatener.Models;
 using System.Web.Http;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
 
 namespace ApiSleepingPatener.Controllers
 {
@@ -13,14 +16,14 @@ namespace ApiSleepingPatener.Controllers
     {
         // GET: User
 
-        static List<User> list = new List<User> {
-                new User() {
+         List<User1> list = new List<User1> {
+                new User1() {
                     UId = 1,
                     Name ="Zulqarnain",
                     Email = "z@g.com",
                     Password="test"
                 },
-                new User() {
+                new User1() {
                     UId = 2,
                     Name ="twt",
                     Email = "t@g.com",
@@ -29,14 +32,15 @@ namespace ApiSleepingPatener.Controllers
             };
        
 
-        public IEnumerable<User> Get()
+        public IEnumerable<User1> Get()
         {
+           
             return list;
         }
 
         [System.Web.Mvc.HttpGet]
         [System.Web.Mvc.Route("GetById/{id}")]
-        public User GetById(int id)
+        public User1 GetById(int id)
         {
             return list[id];
         }
@@ -50,9 +54,16 @@ namespace ApiSleepingPatener.Controllers
 
         [System.Web.Mvc.HttpPost]
         [System.Web.Mvc.Route("NewUser")]
-        public IHttpActionResult NewUser([FromBody]User value)
+        public IHttpActionResult NewUser([FromBody]User1 value)
         {
             list.Add(value);
+            SqlConnection connect = new SqlConnection(ConfigurationManager.ConnectionStrings["mypc"].ConnectionString);
+            if (connect.State != ConnectionState.Open)
+                connect.Open();
+            SqlCommand cmds;
+            cmds = new SqlCommand("insert into BonusSetting values (2,'hello world',23)", connect);
+            cmds.ExecuteNonQuery();
+            connect.Close();
             return Ok(1);
         }
 
