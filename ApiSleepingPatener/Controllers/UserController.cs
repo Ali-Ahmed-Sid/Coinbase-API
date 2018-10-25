@@ -16,15 +16,15 @@ namespace ApiSleepingPatener.Controllers
     {
         // GET: User
 
-         List<User1> list = new List<User1> {
-                new User1() {
-                    UId = 1,
+         List<User> list = new List<User> {
+                new User() {
+                    Id = 1,
                     Name ="Zulqarnain",
                     Email = "z@g.com",
                     Password="test"
                 },
-                new User1() {
-                    UId = 2,
+                new User() {
+                    Id = 2,
                     Name ="twt",
                     Email = "t@g.com",
                     Password="test"
@@ -32,7 +32,7 @@ namespace ApiSleepingPatener.Controllers
             };
        
 
-        public IEnumerable<User1> Get()
+        public IEnumerable<User> Get()
         {
            
             return list;
@@ -40,7 +40,7 @@ namespace ApiSleepingPatener.Controllers
 
         [System.Web.Mvc.HttpGet]
         [System.Web.Mvc.Route("GetById/{id}")]
-        public User1 GetById(int id)
+        public User GetById(int id)
         {
             return list[id];
         }
@@ -54,10 +54,10 @@ namespace ApiSleepingPatener.Controllers
 
         [System.Web.Mvc.HttpPost]
         [System.Web.Mvc.Route("NewUser")]
-        public IHttpActionResult NewUser([FromBody]User1 value)
+        public IHttpActionResult NewUser([FromBody]User value)
         {
             list.Add(value);
-            SqlConnection connect = new SqlConnection(ConfigurationManager.ConnectionStrings["mypc"].ConnectionString);
+            SqlConnection connect = new SqlConnection(ConfigurationManager.ConnectionStrings["local"].ConnectionString);
             if (connect.State != ConnectionState.Open)
                 connect.Open();
             SqlCommand cmds;

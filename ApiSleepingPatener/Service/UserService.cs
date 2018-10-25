@@ -3,21 +3,26 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Http;
 
 
-namespace ApiSleepingPatener.Controllers
+namespace TokenAuth.Services
 {
-    [Authorize]
-    public class AccountController : ApiController
+    public class UserService
     {
-        [HttpGet]
-        [Route("api/account/getuser/{id}")]
-        public IHttpActionResult GetUFirstUser(int id)
-        {
-            // Get user from dummy list
 
-            var userList = new List<User>(){
+        public User ValidateUser(string email, string password)
+        {
+            // Here you can write the code to validate
+            // User from database and return accordingly
+            // To test we use dummy list here
+            var userList = GetUserList();
+            var user = userList.FirstOrDefault(x => x.Email == email && x.Password == password);
+            return user;
+        }
+
+        public List<User> GetUserList()
+        {
+            return new List<User>(){
                   new User() {
                     Id = 1,
                     Name ="Zulqarnain",
@@ -31,9 +36,6 @@ namespace ApiSleepingPatener.Controllers
                     Password="test"
                 }
             };
-
-            var user = userList.FirstOrDefault(x => x.Id == id);
-            return Ok(user);
         }
     }
 }

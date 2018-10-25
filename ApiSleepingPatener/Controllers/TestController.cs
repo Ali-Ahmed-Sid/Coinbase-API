@@ -14,13 +14,13 @@ namespace ApiSleepingPatener.Controllers
 
         static List<User> list = new List<User> {
                 new User() {
-                    UId = 1,
+                    Id = 1,
                     Name ="Zulqarnain",
                     Email = "z@g.com",
                     Password="test"
                 },
                 new User() {
-                    UId = 2,
+                    Id = 2,
                     Name ="twt",
                     Email = "t@g.com",
                     Password="test"
