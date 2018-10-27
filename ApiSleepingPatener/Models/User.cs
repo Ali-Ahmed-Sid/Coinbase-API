@@ -7,6 +7,16 @@ namespace ApiSleepingPatener.Models
 {
     public class User
     {
+      
+        public User(int id, string name, string email, string pass, string uname)
+        {
+            Id = id;
+            Name = name;
+            Email = email;
+            Password = pass;
+            UserName = uname;
+        }
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
@@ -20,5 +30,34 @@ namespace ApiSleepingPatener.Models
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+    }
+    public class NewUserRegistration
+    {
+        public int UserId { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Country { get; set; }
+        public string Address { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public string CNIC { get; set; }
+        public string AccountNumber { get; set; }
+        public string BankName { get; set; }
+        public string IsThisFirstUser { get; set; }
+        public string SponsorId { get; set; }
+        public string DownlineMemberId { get; set; }
+        public string UpperId { get; set; }
+        public string PaidAmount { get; set; }
+        public string CreateDate { get; set; }
+        public string UserCode { get; set; }
+        public string IsUserActive { get; set; }
+        public string IsNewRequest { get; set; }
+        public string UserPosition { get; set; }
+        public string IsEmailConfirmed { get; set; }
+        public string UserPackage { get; set; }
+        public string DocumentImage { get; set; }
+        public string IsSleepingPartner { get; set; }
+        public string IsSalesExecutive { get; set; }
+        public string UserDesignation { get; set; }
     }
 }

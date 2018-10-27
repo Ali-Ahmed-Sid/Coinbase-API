@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Collections.Generic;
 using ApiSleepingPatener.Models;
 using System.Web.Http;
 using System.Data.SqlClient;
@@ -17,18 +13,21 @@ namespace ApiSleepingPatener.Controllers
         // GET: User
 
          List<User> list = new List<User> {
-                new User() {
-                    Id = 1,
-                    Name ="Zulqarnain",
-                    Email = "z@g.com",
-                    Password="test"
+               
+                new User(   2,
+                   "twt",
+                    "t@g.com",
+                    "test",
+                    "test") {
+                 
                 },
-                new User() {
-                    Id = 2,
-                    Name ="twt",
-                    Email = "t@g.com",
-                    Password="test"
-                },
+                  new User(  1,
+                   "twt",
+                    "t@g.com",
+                    "test",
+                    "test") {
+
+                }
             };
        
 
