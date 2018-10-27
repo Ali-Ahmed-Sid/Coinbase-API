@@ -33,6 +33,16 @@ namespace ApiSleepingPatener.Models
     }
     public class NewUserRegistration
     {
+  
+        public NewUserRegistration(int id, string name1, string email, string pass)
+        {
+            this.UserId = id;
+            this.Username = name1;
+            this.Email = email;
+            this.Password = pass;
+           
+        }
+
         public int UserId { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
